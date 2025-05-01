@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG ANONADDY_VERSION=1.3.0
+ARG ANONADDY_VERSION=1.3.1
 ARG ALPINE_VERSION=3.21
 
 FROM crazymax/yasu:latest AS yasu
@@ -55,6 +55,8 @@ RUN apk --no-cache add \
     shadow \
     tar \
     tzdata \
+    cyrus-sasl \
+    cyrus-sasl-login \
   && cp /etc/postfix/master.cf /etc/postfix/master.cf.orig \
   && cp /etc/postfix/main.cf /etc/postfix/main.cf.orig \
   && apk --no-cache add -t build-dependencies \
